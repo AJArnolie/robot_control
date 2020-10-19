@@ -10,6 +10,7 @@ Motors:
  - Red and white wires from each motor connect to each pair of out ports on the HBridge
  - Red Wire from battery goes to 12v+ and Black Wire goes to ground on HBridge
  - Additional wire from HBridge ground to RPi Ground(6)
+ - Seems to be an issue with this setup that burns out the Raspberry Pi --> Proceed with caution
    Left Motor:
     ENA ---> 22/GPIO25
     IN1 ---> 18/GPIO24
