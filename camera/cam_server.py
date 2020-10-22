@@ -6,6 +6,8 @@ import io
 import picamera
 import logging
 import socketserver
+import webbrowser
+import subprocess
 from threading import Condition
 from http import server
 
@@ -16,7 +18,7 @@ PAGE="""\
 </head>
 <body style="background-color:black; color:white;">
 <center><h1>Cardboard Robot Cam</h1></center>
-<center><img src="stream.mjpg" width="1200" height="800"></center>
+<center><img src="stream.mjpg" width="1200" height="600">/center>
 </body>
 </html>
 """
@@ -93,6 +95,7 @@ def start_server():
             address = ('', 8000)
             server = StreamingServer(address, StreamingHandler)
             server.serve_forever()
+            #webbrowser.open('http://{}:8000/index.html'.format(subprocess.getoutput('hostname -I').split(" ")[0]), new=2)
         finally:
             camera.stop_recording()
 

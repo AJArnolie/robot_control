@@ -23,11 +23,11 @@ def wiggle_servos(GPIOs, diff, vel):
     val = 0
     servos = [Servo(i, min_pulse_width=minPW, max_pulse_width=maxPW) for i in GPIOs]
     while True:
-        val += 10
+        val += vel
         for i in range(len(servos)):
             v = np.sin((i * diff + val) / 100.0) / 1.2
             servos[i].value = v
         sleep(0.05)
 
 if __name__ == "__main__":
-    wiggle_servos()
+    wiggle_servos([2], 120, 10)
